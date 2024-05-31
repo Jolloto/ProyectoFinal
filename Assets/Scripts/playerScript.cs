@@ -18,11 +18,10 @@ public class PlayerController : MonoBehaviour
     private int coinsCollected = 0;
     private Rigidbody rb;
     private bool isGrounded;
+    
 
     void Start()
     {
-        
-
         rb = GetComponent<Rigidbody>();
         UpdateUI();
     }
@@ -31,9 +30,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        
     }
 
-    void Move()
+    void Move()     //  El jugador se mueve en ambas direcciones en una velocidad
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
@@ -49,12 +49,13 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)      // Al pulsar espacio el jugador salta con cierta fuerza
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
     }
+    
 
 
     void OnCollisionEnter(Collision collision)
@@ -62,11 +63,11 @@ public class PlayerController : MonoBehaviour
         Vector3 playerPosition = transform.position;
         print("COLISION ENTRA");
         print(playerPosition);
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))       // Si el jugador colisiona con un enemigo se llama a la funcion LoseLife
         {
             LoseLife();
         }
-        if (collision.gameObject.CompareTag(GROUND_TAG))
+        if (collision.gameObject.CompareTag(GROUND_TAG))    // Si el jugador colisiona con el suelo se llama a la funciones Respawn y LoseLife
         {
             if(playerPosition.y < 2)
             {
@@ -75,22 +76,21 @@ public class PlayerController : MonoBehaviour
             }
             isGrounded = true;
         }
-        if (collision.gameObject.CompareTag(COIN_TAG))
+        if (collision.gameObject.CompareTag(COIN_TAG))      // Cuando el jugador colisiona con una moneda se destruye y se le suma una moneda al llegar a 20 Ganas
         {
             coinsCollected++;
             print("Coin colected trigger");
             UpdateUI();
             Destroy(collision.gameObject);
-            // Play particle system (Implement your particle system logic here)
-            // Check win condition
-            if (coinsCollected >= 1)
+            
+            if (coinsCollected >= 20)
             {
                 WinGame();
             }
         }
     }
 
-    void LoseLife()
+    void LoseLife()     //Sistema de vidas si las pierdes Game Over
     {
         lives--;
         //UpdateUI();
@@ -104,39 +104,40 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        transform.position = new Vector3(0, 25, 7.7f); // Change to your respawn point
+        transform.position = new Vector3(0, 25, 7.7f); // Punto de Respawn
         rb.velocity = Vector3.zero;
     }
 
-    void UpdateUI()
+    void UpdateUI()     //Texto muestra vidas y vidas
     {
         livesText.text = "Lives: " + lives;
         coinsText.text = "Coins: " + coinsCollected;
     }
 
-    void GameOver()
+    void GameOver()     //Muestra el panel Game Over al morir
     {
         print("Dead Trigger");
         SceneManager.LoadScene("GameOver");
-        Time.timeScale = 0f; // Stop the game
+        Time.timeScale = 0f; // Para el juego
     }
 
-    void WinGame()
+    void WinGame()      //Muestra el panel Win al morir
+    
     {
         SceneManager.LoadScene("WinPanel");
-        Time.timeScale = 0f; // Stop the game
+        Time.timeScale = 0f; // Para el juego
         // Play sound effect (Implement your sound effect logic here)
     }
 
-    public void RestartGame()
+    public void RestartGame()       //Funcion que hace que vuelva a empezar el juego 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game");     //Carga la es escena del juego
     }
 
     public void ReturnToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");      //Carga la es escena del MainMenu
     }
 }

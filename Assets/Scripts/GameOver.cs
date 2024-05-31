@@ -11,16 +11,16 @@ public class GameOver : MonoBehaviour
         
     }
 
-    public void MainMenu()
+    public void MainMenu()       // Carga la escena mainMenu
     {
-        SceneManager.LoadScene("mainMenu");
-        Time.timeScale = 0f; // Va al mainMenu
-        // Play sound effect (Implement your sound effect logic here)
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f; 
+        
     }
 
-    public void RestartGame()
+    public void RestartGame()   // Carga la escena del Juego
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(3);
     }
 }

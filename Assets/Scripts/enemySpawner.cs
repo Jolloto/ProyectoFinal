@@ -4,16 +4,16 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
-    public float spawnRangeX = 3f;
+    public float spawnRangeX = 2f;
     public float spawnPosY = 50f;
     public float spawnRangeZ = 94f;
 
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy());   //FUncion con una Coroutine que hace que pase X tiempo para que se vuelva a ejecutar la funcion
     }
 
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnEnemy()        // Funcion que Spawnea los enemigos en un rango de distancia cada 1 a 3 segundos
     {
         while (true)
         {
