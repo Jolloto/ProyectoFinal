@@ -19,12 +19,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
-    void Start()
+    [SerializeField] private Animator Corre;
+    private bool isruning;
+
+          
+
+void Start()
     {
-        SceneManager.LoadScene("MainMenu");
 
         rb = GetComponent<Rigidbody>();
         UpdateUI();
+        isruning = false;
+        Corre.SetBool("Corre", isruning) ; 
+
     }
 
     void Update()
@@ -39,6 +46,18 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.AddForce(movement * speed);
+
+        if (moveVertical < -0.1f || moveVertical > 0.1f)
+        {
+            isruning = true;
+            Corre.SetBool("Corre", isruning);
+        }
+        else
+        {
+
+            isruning = false;
+            Corre.SetBool("Corre", isruning);
+        }
     }
 
     void Rotate()

@@ -1886,13 +1886,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040348202}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04600525, y: -0, z: -0, w: 0.9989412}
-  m_LocalPosition: {x: -0.23999998, y: 2.05, z: -4.08}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: -0.23999998, y: 2.08, z: -7.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1403797251}
-  m_LocalEulerAnglesHint: {x: 5.274, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!1001 &1123322516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2548,6 +2548,7 @@ GameObject:
   - component: {fileID: 1403797253}
   - component: {fileID: 1403797254}
   - component: {fileID: 1403797255}
+  - component: {fileID: 1403797256}
   m_Layer: 0
   m_Name: Jugador
   m_TagString: Player
@@ -2637,7 +2638,7 @@ Transform:
   m_GameObject: {fileID: 1403797247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 24.94, z: 7.7}
+  m_LocalPosition: {x: -0.03, y: 24.97, z: 7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2662,6 +2663,7 @@ MonoBehaviour:
   livesText: {fileID: 117135013}
   coinsText: {fileID: 156414350}
   winPanel: {fileID: 0}
+  playerAnimator: {fileID: 0}
 --- !u!143 &1403797253
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2734,6 +2736,27 @@ MonoBehaviour:
   spawnRangeX: 8
   spawnPosY: 50
   spawnRangeZ: 94
+--- !u!95 &1403797256
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403797247}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ad64f95ef381fd4dab095971ab736a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1510047230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1330184826739159515, guid: 135aeec9bdc704a49be6efc7ef78f9ad,

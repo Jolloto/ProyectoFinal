@@ -10,9 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
+    [SerializeField] private Animator animatorJugador;
+    private bool Corre = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animatorJugador.SetBool("Corre", Corre); 
     }
 
     void Update()
@@ -20,7 +24,11 @@ public class PlayerMovement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
+        
+
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+
 
         rb.AddForce(movement * moveSpeed);
 

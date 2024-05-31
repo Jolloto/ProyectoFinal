@@ -4,7 +4,11 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public Slider volumeSlider;
+    [SerializeField] public Slider volumeSlider;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button exitButton;
+
+    private playerScript PlayerScript;
 
     private void Start()
     {
@@ -12,11 +16,13 @@ public class MainMenu : MonoBehaviour
         {
             volumeSlider.value = PlayerPrefs.GetFloat("Volume");
         }
+
+      
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(3);
     }
 
     public void ExitGame()
