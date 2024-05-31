@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemies;
-    public float spawnRangeX = 8f;
+    public float spawnRangeX = 3f;
     public float spawnPosY = 50f;
     public float spawnRangeZ = 94f;
 

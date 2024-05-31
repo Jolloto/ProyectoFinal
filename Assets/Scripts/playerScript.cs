@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene("MainMenu");
+        
 
         rb = GetComponent<Rigidbody>();
         UpdateUI();
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             // Play particle system (Implement your particle system logic here)
             // Check win condition
-            if (coinsCollected >= 20)
+            if (coinsCollected >= 1)
             {
                 WinGame();
             }
