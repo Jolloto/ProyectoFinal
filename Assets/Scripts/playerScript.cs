@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        Rotate();
         
     }
 
